@@ -2,7 +2,7 @@
 import { Configuration, OpenAIApi } from "openai";
 
 const config = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY, // simpan sebagai variabel environment
+  apiKey: process.env.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, // simpan sebagai variabel environment
 });
 const openai = new OpenAIApi(config);
 
