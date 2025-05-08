@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Coding Pribadi</title>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; background: #f9f9f9; }
+    textarea { width: 100%; height: 100px; margin-bottom: 1rem; }
+    button { padding: 0.5rem 1rem; }
+    #output { background: #fff; padding: 1rem; border-radius: 8px; margin-top: 1rem; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <h1>AI Coding Pribadi</h1>
+  <textarea id="prompt" placeholder="Tanyakan tentang coding..."></textarea>
+  <br>
+  <button onclick="askAI()">Kirim</button>
+
+  <div id="output"></div>
+
+  <script>
+    async function askAI() {
+      const prompt = document.getElementById('prompt').value;
+      const res = await fetch(`/api/ai?message=${encodeURIComponent(prompt)}`);
+      const data = await res.json();
+      document.getElementById('output').innerText = data.reply;
+    }
+  </script>
+</body>
+</html>
